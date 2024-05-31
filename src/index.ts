@@ -1,30 +1,39 @@
 export interface Instance extends Record<string, any> {
-  FindFirstChild<X>(name: string): X | undefined;
   Name: string
   Parent?: Instance
   Destroy: () => void
+  FindFirstChild: <X = Instance>(name: string) => X | undefined;
+  GetChildren: <X = Instance>(this: Instance) => Array<X>;
+  WaitForChild: <X = Instance>(
+    this: Instance,
+    childName: string | number
+  ) => X;
+}
+
+const instance: Instance = {
+  Name: 'Players',
+  Destroy: () => {},
+  FindFirstChild: (name) => undefined,
+  GetChildren: () => [],
+  WaitForChild: (childName) => { throw new Error(''); },
 }
 
 export const Players: Instance = {
-  FindFirstChild: (name) => undefined,
+  ...instance,
   Name: 'Players',
-  Destroy: () => {},
 }
 
 export const RunService: Instance = {
-  FindFirstChild: (name) => undefined,
+  ...instance,
   Name: 'RunService',
-  Destroy: () => {},
 }
 
 export const SoundService: Instance = {
-  FindFirstChild: (name) => undefined,
+  ...instance,
   Name: 'SoundService',
-  Destroy: () => {},
 }
 
 export const UserInputService: Instance = {
-  FindFirstChild: (name) => undefined,
+  ...instance,
   Name: 'UserInputService',
-  Destroy: () => {},
 }
