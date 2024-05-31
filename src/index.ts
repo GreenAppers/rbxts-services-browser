@@ -11,7 +11,7 @@ export interface Instance extends Record<string, any> {
 }
 
 const instance: Instance = {
-  Name: 'Players',
+  Name: '',
   Destroy: () => {},
   FindFirstChild: (name) => undefined,
   GetChildren: () => [],
