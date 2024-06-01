@@ -26,6 +26,7 @@ export const Players: Instance = {
 export const RunService: Instance = {
   ...instance,
   Name: 'RunService',
+  IsStudio() { return false; }
 }
 
 export const SoundService: Instance = {
