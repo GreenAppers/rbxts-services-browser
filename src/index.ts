@@ -37,4 +37,5 @@ export const SoundService: Instance = {
 export const UserInputService: Instance = {
   ...instance,
   Name: 'UserInputService',
+  GetLastInputType: () => 'keyboard',
 }
